@@ -1,2 +1,2 @@
 #!/bin/bash
-sed -i -e "$a\" file
+cut -c 1 | paste -s -d ''
