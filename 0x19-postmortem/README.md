@@ -1,22 +1,36 @@
-# website requests failure report
-On previous month, it was reported that the our website platform was returning 500 Error on all requests made on the platform routes, all the services were down.  most of the users were affected. The root cause was the failure of our master server web-01.
+**Issue Summary:**
+- **Duration:** March 8th, 2024, 15:30 UTC to March 9th, 2024, 09:00 UTC
+- **Impact:** The primary web service experienced intermittent outages, resulting in a 20% decrease in user accessibility.
+- **Root Cause:** A misconfiguration in the load balancer led to excessive traffic redirection, causing service degradation.
 
-## Timeline
-The error was realized on monday 26th December 2022 at  09:30AM hours (East Africa Time) when our server administrator , Mr kefyalew Zerfu saw the master server lagging in speed. Afterv the situation happened , Our sytem technicians were on  call and  disconnected the master server web-01 for further system analysis and channelled all requests to client server web-02. They solved the  problem by Tuesday 27th December 2022  at 07:15PM  (East Africa Time).
+**Timeline:**
+- **March 8th, 2024, 15:30 UTC:** Issue detected through monitoring alerts indicating increased latency.
+- **March 8th, 2024, 15:35 UTC:** Engineering team initiated investigation, suspecting potential server overload.
+- **March 8th, 2024, 16:00 UTC:** Load balancer settings reviewed and suspected as the culprit.
+- **March 8th, 2024, 16:30 UTC:** Load balancer configurations adjusted to mitigate traffic redirection.
+- **March 8th, 2024, 17:00 UTC:** Issue seemed resolved; incident considered closed.
+- **March 9th, 2024, 08:45 UTC:** Reports of service degradation resurfaced.
+- **March 9th, 2024, 08:50 UTC:** Investigation resumed, focusing on load balancer logs.
+- **March 9th, 2024, 09:00 UTC:** Root cause identified as a misconfigured routing algorithm.
+- **March 9th, 2024, 09:30 UTC:** Load balancer settings reverted to default; service stability restored.
 
-## Root cause of The problem and resolution
-The Website platform is served by 2 ubuntu cloud servers. technically our team belives that  HTTP 500 errors aren't problems with your computer, browser, or internet connection. Instead, they're a generic response that catches any unexplainable server error. You'll see the HyperText Transfer Protocol (HTTP) 500 Internal Server Error when your server issue doesn't fit another error code. Therefore , the team observed that the master server web-01 was connected to serve all requests, and it stopped functioning due to memory outage as a results of so many requests because during a previous test, the client server web-02 was disconnected temporarily for testing and was not connected to the load balancer afterwards. 
+**Root Cause and Resolution:**
+- **Root Cause:** Misconfiguration in the load balancer's routing algorithm caused excessive redirection of traffic, leading to service degradation.
+- **Resolution:** Load balancer configurations were reverted to default settings, ensuring proper traffic distribution and service stability.
 
+**Corrective and Preventative Measures:**
+- **Improvements/Fixes:**
+  1. Enhance load balancer configuration validation processes to catch misconfigurations earlier.
+  2. Implement automated monitoring for load balancer performance metrics to promptly detect anomalies.
+  3. Conduct regular load testing to validate load balancer behavior under different traffic conditions.
+- **Tasks:**
+  1. Develop a checklist for load balancer configuration validation.
+  2. Implement automated alerts for load balancer performance deviations.
+  3. Schedule periodic load testing exercises to assess system scalability and resilience.
 
-The issue was fixed when the master server was temporarily disconnected for memory clean-up then connected back to the loadbalancer and round-robin algorithm was configured so that both the master and client servers can handle equal amount of requests.
+By implementing these measures, we aim to mitigate the risk of similar incidents in the future and ensure uninterrupted service delivery to our users.
 
-## Measures against such problem in future
-- Choose the best loadbalancing algorithm for your programs
-- Always keep an eye on your servers to ensure they are running properly
-- Have extra back-up servers to prevent your program fro completely going offline during an issue
+https://docs.google.com/document/d/12VHmjxlTLlAlVI45OuZ-WB1ZfCyjnaFNu_gs8jrHKpo/edit?usp=sharing
 
-##
-Troubleshooting an HTTP 500 internal server error is like solving a mystery.
-
-https://blog.hubspot.com/hs-fs/hubfs/HTTP-500-Internal-Server-Error-3.jpg?width=595&height=400&name=HTTP-500-Internal-Server-Error-3.jpg
+https://docs.google.com/document/d/1j05aGcwU63CgeWZu7jzObzGOV2GRxg3AGVttuMlBGCQ/edit?usp=sharing
 
