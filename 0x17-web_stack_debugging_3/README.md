@@ -5,7 +5,7 @@ Scripting
 Debugging
  By: Sylvain Kalache, co-founder at Holberton School
  Weight: 1
- Ongoing second chance project - started Jan 16, 2024 6:00 AM, must end by Jan 22, 2024 6:00 AM
+ Ongoing second chance project - started Mar 5, 2024 6:00 AM, must end by Mar 11, 2024 6:00 AM
  An auto review will be launched at the deadline
 In a nutshell…
 Auto QA review: 0.0/2 mandatory
@@ -94,5 +94,4 @@ Repo:
 GitHub repository: alx-system_engineering-devops
 Directory: 0x17-web_stack_debugging_3
 File: 0-strace_is_your_friend.pp
-    
 
